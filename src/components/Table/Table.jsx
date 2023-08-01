@@ -25,29 +25,29 @@ const Table = () => {
             <tbody>
             {
                 routeList.map(route =>
-                <tr key={route.id}
-                    className={currentRoute.id === route.id ? "bodyTr active" : "bodyTr"}
-                    onClick={() => selectThisRoute(route)}>
-                    <td>{route.name}</td>
-                    <td>
-                        <div className="pointsContainer">
-                            <span>{route.point1[0]}</span>
-                            <span>{route.point1[1]}</span>
-                        </div>
-                    </td>
-                    <td>
-                        <div className="pointsContainer">
-                            <span>{route.point2[0]}</span>
-                            <span>{route.point2[1]}</span>
-                        </div>
-                    </td>
-                    <td>
-                        <div className="pointsContainer">
-                            <span>{route.point3[0]}</span>
-                            <span>{route.point3[1]}</span>
-                        </div>
-                    </td>
-                </tr>
+                    <tr key={route.id}
+                        className={currentRoute.id === route.id ? "bodyTr active" : "bodyTr"}
+                        onClick={() => selectThisRoute(route)}>
+                        <td>{route.name}</td>
+                        <td>
+                            <div className="pointsContainer">
+                                <span>{route.point1[0]}</span>
+                                <span>{route.point1[1]}</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div className="pointsContainer">
+                                <span>{route.point2[0]}</span>
+                                <span>{route.point2[1]}</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div className="pointsContainer">
+                                <span>{route.point3[0]}</span>
+                                <span>{route.point3[1]}</span>
+                            </div>
+                        </td>
+                    </tr>
                 )
             }
             </tbody>

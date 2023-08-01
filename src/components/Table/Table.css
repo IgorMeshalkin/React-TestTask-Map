@@ -40,6 +40,8 @@ td {
     background-color: #e892a2;
 }
 
-tr:nth-child(odd) {background: #bfbfbf}
+tr:nth-child(odd) {
+    background: #bfbfbf
+}
 
 

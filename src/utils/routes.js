@@ -23,3 +23,10 @@ export const getRoutes = () => {
         }
     ]
 }
+
+//возвращает строку содержащую точки маршрута в формате необходимом для вставки в http запрос
+export const getPointsString = (route) => {
+    return String(route.point1[1]) + ',' + String(route.point1[0])
+        + ';' + String(route.point2[1]) + ',' + String(route.point2[0]) + ';'
+        + String(route.point3[1]) + ',' + String(route.point3[0]);
+}

@@ -1,5 +1,4 @@
-import React from 'react';
-import {useEffect} from "react";
+import React, {useEffect} from 'react';
 import {useSelector} from "react-redux";
 import {useMap} from "react-leaflet";
 import {getCenterByRoute, getZoomByRoute} from "../../../utils/map";
@@ -11,11 +10,7 @@ const MapHandler = () => {
 
     useEffect(() => {
         if (currentRoute.id) {
-            map.setView(getCenterByRoute(currentRoute))
-            const timeout = setTimeout(() => {
-                map.setZoom(getZoomByRoute(currentRoute))
-            }, 300)
-            return () => clearTimeout(timeout);
+            map.setView(getCenterByRoute(currentRoute), getZoomByRoute(currentRoute))
         }
     }, [currentRoute, map])
 };
