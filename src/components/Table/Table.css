@@ -1,0 +1,45 @@
+.tableTitle {
+    width: 100%;
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+}
+
+.pointsContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+th {
+    padding: 20px;
+    background-color: #88b78e;
+}
+
+td {
+    padding: 10px 20px;
+}
+
+.bodyTr {
+    transition: .3s;
+    cursor: pointer;
+}
+
+.bodyTr:hover {
+    background-color: #aacbaf;
+}
+
+.bodyTr.active {
+    background-color: #e892a2;
+}
+
+tr:nth-child(odd) {background: #bfbfbf}
+
+
