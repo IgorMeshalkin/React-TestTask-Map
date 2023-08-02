@@ -1,11 +1,9 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import {useSelector} from "react-redux";
 import {MapContainer, Marker, Polyline, Popup, TileLayer} from "react-leaflet";
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import MapHandler from "./MapHandler/MapHandler";
-import axios from "axios";
-import {getPointsString} from "../../utils/routes";
 
 delete L.Icon.Default.prototype._getIconUrl;
 
@@ -16,21 +14,12 @@ L.Icon.Default.mergeOptions({
 });
 
 const MyMap = () => {
-    const startPosition = [59.942952, 30.323713]; //центр карты по умолчанию
-    const polyline = require('polyline'); //объект для декодирования polyline из запроса
-
+    //центр карты по умолчанию
+    const startPosition = [59.942952, 30.323713];
+    //текущий маршрут, тот который выбран в таблице
     const currentRoute = useSelector(state => state.currentRoute.route)
-    const [routeLine, setRouteLine] = useState([]); //координаты маршрута для отображения на карте
-
-    //при каждом изменении текущего маршрута, запрашивает его через API OSRM и отрисовывает на карте.
-    useEffect(() => {
-        if (currentRoute.id) {
-            axios.get('http://router.project-osrm.org/route/v1/driving/' + getPointsString(currentRoute) + '?overview=full')
-                .then(res => {
-                    setRouteLine(polyline.decode(res.data.routes[0].geometry))
-                })
-        }
-    }, [currentRoute, polyline])
+    //объект содержащий массив точек маршрута для polyline и флаг о том загружается новый массив в данный момент или нет.
+    const routeLine = useSelector(state => state.routeLine.routeLine)
 
     return (<div>
         <MapContainer center={startPosition} zoom={12} scrollWheelZoom={true}>
@@ -41,10 +30,12 @@ const MyMap = () => {
 
             <MapHandler/>
 
-            <Polyline
-                pathOptions={{color: '#36b030'}}
-                positions={routeLine}
-            />
+            {!routeLine.isLoading &&
+                <Polyline
+                    pathOptions={{color: '#36b030'}}
+                    positions={routeLine.pointsArray}
+                />
+            }
 
             {currentRoute.id && <>
                 <Marker position={currentRoute.point1}>

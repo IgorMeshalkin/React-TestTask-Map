@@ -1,3 +1,4 @@
+//возвращает точку для центрирования карты по переданному маршруту
 export const getCenterByRoute = (route) => {
     const sortedPointsArray = getSortedArrays(route);
     let lonSum = sortedPointsArray[0][0] + sortedPointsArray[0][2];
@@ -5,6 +6,7 @@ export const getCenterByRoute = (route) => {
     return [lonSum / 2, latSum / 2]
 }
 
+//возвращает масштаб карты для того что бы вписать переданный маршрут целиком
 export const getZoomByRoute = (route) => {
     const sortedPointsArray = getSortedArrays(route);
     const lonDifferent = sortedPointsArray[0][2] - sortedPointsArray[0][0];
@@ -30,6 +32,7 @@ export const getZoomByRoute = (route) => {
     return zoom;
 }
 
+//возвращает координаты точек маршрута в виде отсортированных от меньшего к большему массивов
 const getSortedArrays = (route) => {
     const lonArray = [route.point1[0], route.point2[0], route.point3[0]].sort((a, b) => a - b)
     const latArray = [route.point1[1], route.point2[1], route.point3[1]].sort((a, b) => a - b)

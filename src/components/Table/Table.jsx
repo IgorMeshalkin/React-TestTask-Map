@@ -4,10 +4,12 @@ import {useDispatch, useSelector} from "react-redux";
 import {selectRoute} from "../../store/currentRouteSlice";
 
 const Table = () => {
-    const routeList = useSelector(state => state.routeList.routeList)
-    const currentRoute = useSelector(state => state.currentRoute.route)
     const dispatch = useDispatch();
 
+    //Список доступных маршрутов
+    const routeList = useSelector(state => state.routeList.routeList)
+    //текущий маршрут, тот который выбран в данный момент
+    const currentRoute = useSelector(state => state.currentRoute.route)
     //делает выбранный маршрут активным
     const selectThisRoute = (route) => dispatch(selectRoute(route));
 
