@@ -1,5 +1,5 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {getRoutes} from "../utils/routes";
+import {getRoutes} from "../../utils/routes";
 
 const routeListSlice = createSlice({
     name: 'routeList',

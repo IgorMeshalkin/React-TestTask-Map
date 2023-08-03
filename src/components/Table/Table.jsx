@@ -1,7 +1,7 @@
 import React from 'react';
 import './Table.css'
 import {useDispatch, useSelector} from "react-redux";
-import {selectRoute} from "../../store/currentRouteSlice";
+import {selectRoute} from "../../store/slices/currentRouteSlice";
 
 const Table = () => {
     const dispatch = useDispatch();

@@ -1,7 +1,7 @@
 import {configureStore} from "@reduxjs/toolkit";
-import routeList from './routeListSlice'
-import currentRoute from './currentRouteSlice'
-import routeLine from './routeLineSlice'
+import routeList from './slices/routeListSlice'
+import currentRoute from './slices/currentRouteSlice'
+import routeLine from './slices/routeLineSlice'
 import createSagaMiddleware from "redux-saga";
 import routeLineSaga from '../sagas/routeLineSaga'
 

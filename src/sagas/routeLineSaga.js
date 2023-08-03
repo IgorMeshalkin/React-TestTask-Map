@@ -1,5 +1,5 @@
 import {put, takeEvery} from 'redux-saga/effects'
-import {getRouteLineFailure, getRouteLineFetch, getRouteLineSuccess} from "../store/routeLineSlice";
+import {getRouteLineFailure, getRouteLineFetch, getRouteLineSuccess} from "../store/slices/routeLineSlice";
 import axios from "axios";
 import {getQueryStringByRoute} from "../utils/routes";
 

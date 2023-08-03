@@ -28,7 +28,7 @@ export const getRoutes = () => {
 //возвращает строку запроса к API OSRM для переданного маршрута
 //исходит из того что в данной задаче у всех маршрутов 3 точки
 export const getQueryStringByRoute = (route) => {
-    return 'http://router.project-osrm.org/route/v1/driving/'
+    return 'https://router.project-osrm.org/route/v1/driving/'
         + String(route.point1[1]) + ',' + String(route.point1[0])
         + ';' + String(route.point2[1]) + ',' + String(route.point2[0])
         + ';' + String(route.point3[1]) + ',' + String(route.point3[0])
